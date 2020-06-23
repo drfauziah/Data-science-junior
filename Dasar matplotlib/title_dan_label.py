@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-table = pd.read_csv("https://academy.dqlab.id/dataset/penduduk_gender_head.csv")
+table = pd.read_csv("penduduk_gender_head.csv")
 table.head()
 
 x_label = table['NAMA KELURAHAN']
