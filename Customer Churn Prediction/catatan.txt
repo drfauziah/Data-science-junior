@@ -1,0 +1,53 @@
+PEMBAHASAN HASIL
+
+1. Exploratory Data Analysis
+	- sebanyak 26% pelanggan melakukan churn
+	- Dari data MonthlyCharges ada kecenderungan semakin kecil nilai biaya bulanan yang dikenakan, 
+	  semakin kecil juga kecenderungan untuk melakukan Churn. 
+	- Untuk data TotalCharges terlihat tidak ada kecenderungan apapun terhadap Churn customers.
+	- Untuk tenure ada kecenderungan semakin lama berlangganan customer,
+	  semakin kecil kecenderungan untuk melakukan Churn.
+	- tidak ada perbedaan yang signifikan untuk orang melakukan churn dilihat dari faktor jenis kelamin (gender) dan layanan telfonnya (PhoneService).
+	  Akan tetapi ada kecenderungan bahwa orang yang melakukan churn adalah orang-orang yang tidak memiliki partner (partner: No),
+	  orang-orang yang statusnya adalah senior citizen(SeniorCitizen: Yes),
+	  orang-orang yang mempunyai layanan streaming TV (StreamingTV: Yes), 
+	  orang-orang yang mempunyai layanan Internet (internetService: Yes), 
+	  dan orang-orang yang tagihannya paperless (PaperlessBilling: Yes)
+
+2. Model menggunakan Algoritma Logistic Linear
+	- Jika kita menggunakan menggunakan algoritma logistic regression dengan memanggil LogisticRegression() dari sklearn
+	  tanpa menambahi parameter apapun, maka yang dihasilkan adalah model dengan seting default dari sklearn, untuk detilnya bisa dilihat di dokumentasinya.
+	- Dari data training terlihat bahwasannya model mampu memprediksi data dengan menghasilkan akurasi sebesar 80%,
+	  dengan detil tebakan churn yang sebenernya benar churn adalah 638, tebakan tidak churn yang sebenernya tidak churn adalah 3237,
+	  tebakan tidak churn yang sebenernya benar churn adalah 652 dan tebakan churn yang sebenernya tidak churn adalah 338.
+	- Dari data testing terlihat bahwasannya model mampu memprediksi data dengan menghasilkan akurasi sebesar 79%,
+	  dengan detil tebakan churn yang sebenernya benar churn adalah 264, tebakan tidak churn yang sebenernya tidak churn adalah 1392,
+	  tebakan tidak churn yang sebenernya benar churn adalah 282 dan tebakan churn yang sebenernya tidak churn adalah 146.
+
+3. Model menggunakan Algoritma Random Forest Classifier
+	- Jika kita menggunakan menggunakan algoritma Random Forest dengan memanggil RandomForestClassifier() dari sklearn 
+	  tanpa menambahi parameter apapun, maka yang dihasilkan adalah model dengan seting default dari sklearn, untuk detilnya bisa dilihat di dokumentasinya.
+	- Dari data training terlihat bahwasannya model mampu memprediksi data dengan menghasilkan akurasi sebesar 100%,
+	  dengan detil tebakan churn yang sebenernya benar churn adalah 1278, tebakan tidak churn yang sebenernya tidak churn adalah 3566, 
+	  tebakan tidak churn yang sebenernya benar churn adalah 12 dan tebakan churn yang sebenernya tidak churn adalah 9.
+	- Dari data testing terlihat bahwasannya model mampu memprediksi data dengan menghasilkan akurasi sebesar 78%, 
+	  dengan detil tebakan churn yang sebenernya benar churn adalah 262, tebakan tidak churn yang sebenernya tidak churn adalah 1360, 
+	  tebakan tidak churn yang sebenernya benar churn adalah 284 dan tebakan churn yang sebenernya tidak churn adalah 179.
+
+4. Model menggunakan Algoritma Gradient Boosting Classifier
+	- Jika kita menggunakan menggunakan algoritma Gradient Boosting dengan memanggil GradientBoostingClassifier() dari package sklearn 
+	  tanpa menambahi parameter apapun, maka yang dihasilkan adalah model dengan seting default dari sklearn, 
+	  untuk detilnya bisa dilihat di dokumentasinya.
+	- Dari data training terlihat bahwasannya model mampu memprediksi data dengan menghasilkan akurasi sebesar 82%, 
+	  dengan detil tebakan churn yang sebenernya benar churn adalah 684, tebakan tidak churn yang sebenernya tidak churn adalah 3286, 
+	  tebakan tidak churn yang sebenernya benar churn adalah 606 dan tebakan churn yang sebenernya tidak churn adalah 289.
+	- Dari data testing terlihat bahwasannya model mampu memprediksi data dengan menghasilkan akurasi sebesar 79%,
+	  dengan detil tebakan churn yang sebenernya benar churn adalah 261, tebakan tidak churn yang sebenernya tidak churn adalah 1394,
+	  tebakan tidak churn yang sebenernya benar churn adalah 285 dan tebakan churn yang sebenernya tidak churn adalah 145.
+
+5. Berdasarkan pemodelan yang telah dilakukan dengan menggunakan Logistic Regression, Random Forest dan Extreme Gradiant Boost, 
+   maka dapat disimpulkan untuk memprediksi churn dari pelanggan telco dengan menggunakan dataset ini model terbaiknya adalah menggunakan algortima Logistic Regression.
+   Hal ini dikarenakan performa dari model Logistic Regression cenderung mampu memprediksi sama baiknya di fase training maupun testing (akurasi training 80%, akurasi testing 79%),
+   dilain sisi algoritma lainnya cenderung Over-Fitting performanya. 
+   Akan tetapi hal ini tidak menjadikan kita untuk menarik kesimpulan bahwsannya jika untuk melakukan pemodelan apapun maka digunakan Logistic Regression, 
+   kita tetap harus melakukan banyak percobaan model untuk menentukan mana yang terbaik.
